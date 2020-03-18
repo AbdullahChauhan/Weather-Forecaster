@@ -16,7 +16,7 @@ class APIService {
       @required double latitude,
       @required double longitude}) async {
     final uri =
-        api.forcastCallUri(key: key, latitude: 24.8607, longitude: 67.0011);
+        api.forcastCallUri(key: key, latitude: latitude, longitude: longitude);
     final response = await http.get(
       uri.toString(),
     );
@@ -30,8 +30,8 @@ class APIService {
       if (response.statusCode == 401) {
         print(
             'Request ${api.forcastCallUri(key: key, latitude: latitude, longitude: longitude)} failed\nResponse: ${response.statusCode} ${response.reasonPhrase}');
-        throw response;
       }
     }
+    throw response;
   }
 }
