@@ -1,0 +1,4 @@
+@demoLatitude = 42.3601
+@demoLongitude = -71.0589
+
+GET {{baseUrl}}/{{secretKey}}/{{demoLatitude}},{{demoLongitude}}
