@@ -48,12 +48,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double _data = 0;
+  double _latitude;
+  double _longitude;
 
   void _incrementCounter() async {
     final apiService = APIService(api: API.sandbox());
-    final data = await apiService.getForcast(key: apiService.api.apiKey, latitude: 24.8607, longitude: 67.0011);
-    setState(() => _data = data['longitude']);
+    final forecastData = await apiService.getForcast(key: apiService.api.apiKey, latitude: 24.8607, longitude: 67.0011);
+    setState(() {
+      _latitude = forecastData.latitude;
+      _longitude = forecastData.longitude;
+    });
   }
 
   @override
@@ -90,9 +94,14 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            _latitude != null ?
             Text(
-              '$_data',
-            ),
+              '$_latitude',
+            ) : SizedBox(),
+            _latitude != null ?
+            Text(
+              '$_longitude',
+            ) : SizedBox(),
           ],
         ),
       ),
