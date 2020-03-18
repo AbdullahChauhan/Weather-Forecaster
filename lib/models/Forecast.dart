@@ -12,7 +12,7 @@ part 'Forecast.g.dart';
 class Forecast {
   final double latitude;
   final double longitude;
-  final String timeZone;
+  final String timezone;
   final Map<String, dynamic> currently;
   final Map<String, dynamic> minutely;
   final Map<String, dynamic> hourly;
@@ -20,7 +20,7 @@ class Forecast {
   final Map<String, dynamic> flags;
   final int offset;
 
-  Forecast(this.latitude, this.longitude, this.timeZone, this.currently, this.minutely, this.hourly, this.daily, this.flags, this.offset);
+  Forecast(this.latitude, this.longitude, this.timezone, this.currently, this.minutely, this.hourly, this.daily, this.flags, this.offset);
 
   /// A necessary factory constructor for creating a new Forecast instance
   /// from a map. Pass the map to the generated `_$ForecastFromJson()` constructor.

@@ -50,13 +50,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   double _latitude;
   double _longitude;
+  String _timezone;
+  Map<String, dynamic> _currently;
 
-  void _incrementCounter() async {
+  void _getForecast() async {
     final apiService = APIService(api: API.sandbox());
     final forecastData = await apiService.getForcast(key: apiService.api.apiKey, latitude: 24.8607, longitude: 67.0011);
     setState(() {
       _latitude = forecastData.latitude;
       _longitude = forecastData.longitude;
+      _timezone = forecastData.timezone;
+      _currently = forecastData.currently;
     });
   }
 
@@ -94,9 +98,17 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _latitude != null ?
+            _timezone != null ?
             Text(
-              '$_latitude',
+              '$_timezone',
+            ) : SizedBox(),
+            _currently != null ?
+            Text(
+              '${_currently['summary']}',
+            ) : SizedBox(),
+            _currently != null ?
+            Text(
+              '${_currently['temperature']}',
             ) : SizedBox(),
             _latitude != null ?
             Text(
@@ -106,8 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: _getForecast,
+        tooltip: 'getData',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

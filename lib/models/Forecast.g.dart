@@ -10,7 +10,7 @@ Forecast _$ForecastFromJson(Map<String, dynamic> json) {
   return Forecast(
     (json['latitude'] as num)?.toDouble(),
     (json['longitude'] as num)?.toDouble(),
-    json['timeZone'] as String,
+    json['timezone'] as String,
     json['currently'] as Map<String, dynamic>,
     json['minutely'] as Map<String, dynamic>,
     json['hourly'] as Map<String, dynamic>,
@@ -23,7 +23,7 @@ Forecast _$ForecastFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$ForecastToJson(Forecast instance) => <String, dynamic>{
       'latitude': instance.latitude,
       'longitude': instance.longitude,
-      'timeZone': instance.timeZone,
+      'timezone': instance.timezone,
       'currently': instance.currently,
       'minutely': instance.minutely,
       'hourly': instance.hourly,
