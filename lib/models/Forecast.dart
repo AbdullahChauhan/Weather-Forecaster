@@ -18,7 +18,7 @@ class Forecast {
   final Map<String, dynamic> hourly;
   final Map<String, dynamic> daily;
   final Map<String, dynamic> flags;
-  final int offset;
+  final double offset;
 
   Forecast(this.latitude, this.longitude, this.timezone, this.currently, this.minutely, this.hourly, this.daily, this.flags, this.offset);
 

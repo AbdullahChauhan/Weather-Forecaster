@@ -16,7 +16,7 @@ Forecast _$ForecastFromJson(Map<String, dynamic> json) {
     json['hourly'] as Map<String, dynamic>,
     json['daily'] as Map<String, dynamic>,
     json['flags'] as Map<String, dynamic>,
-    json['offset'] as int,
+    (json['offset'] as num)?.toDouble(),
   );
 }
 
