@@ -2,3 +2,4 @@
 @demoLongitude = -71.0589
 
 GET {{baseUrl}}/{{secretKey}}/{{demoLatitude}},{{demoLongitude}}
+Accept:	application/json
