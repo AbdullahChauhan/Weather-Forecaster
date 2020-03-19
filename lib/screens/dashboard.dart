@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/models/Forecast.dart';
+import 'package:weather_app/screens/widgets/forecast_card.dart';
 import 'package:weather_app/services/api.dart';
 import 'package:weather_app/services/api_service.dart';
 
@@ -9,7 +11,8 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  String _timezone;
+
+  Forecast _forecast;
 
   @override
   void initState() {
@@ -25,11 +28,13 @@ class _DashboardState extends State<Dashboard> {
     print(currentTimeInSecs);
     final forecast = await dataRepository.getForcast(
       key: API.sandbox().apiKey,
-      latitude: 40.7128,
-      longitude: -74.0060,
+      latitude: 42.3601,
+      longitude: -71.0589,
       timeInSecs: currentTimeInSecs
     );
-    setState(() => _timezone = forecast.timezone);
+    setState(() {
+      _forecast = forecast;
+    });
   }
 
   @override
@@ -38,11 +43,14 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         title: Text('Weather Forecast'),
       ),
-      body: Center(
-          child: Text(
-        _timezone != null ? _timezone : '',
-        style: Theme.of(context).textTheme.headline5,
-      )),
+      body: RefreshIndicator(
+        onRefresh: _updateData,
+              child: ListView(
+          children: <Widget>[
+            ForecastCard(forecast: _forecast)
+          ],
+        ),
+      ),
     );
   }
 }
