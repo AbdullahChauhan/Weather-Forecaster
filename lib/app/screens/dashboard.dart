@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/app/utils/app_utils.dart';
-import 'package:weather_app/models/Forecast.dart';
+import 'package:weather_app/app/models/Forecast.dart';
 import 'package:weather_app/screens/widgets/forecast_card.dart';
-import 'package:weather_app/services/api.dart';
+import 'package:weather_app/app/services/api.dart';
 import 'package:weather_app/services/api_service.dart';
 
 class Dashboard extends StatefulWidget {

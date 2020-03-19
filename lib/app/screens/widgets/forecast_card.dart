@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:weather_app/models/Forecast.dart';
+import 'package:weather_app/app/models/Forecast.dart';
 
 class ForecastCard extends StatelessWidget {
   final Forecast forecast;

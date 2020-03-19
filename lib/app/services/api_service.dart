@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:weather_app/models/Forecast.dart';
-import 'package:weather_app/services/api.dart';
+import 'package:weather_app/app/models/Forecast.dart';
+import 'package:weather_app/app/services/api.dart';
 
 class APIService {
   final API api;

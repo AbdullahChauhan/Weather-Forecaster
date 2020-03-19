@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:weather_app/services/api_keys.dart';
+import 'package:weather_app/app/services/api_keys.dart';
 
 class API {
   final String apiKey;
