@@ -1,5 +1,6 @@
 @demoLatitude = 42.3601
 @demoLongitude = -71.0589
+@demoTime = 1584605300
 
-GET {{baseUrl}}/{{secretKey}}/{{demoLatitude}},{{demoLongitude}}
+GET {{baseUrl}}/{{secretKey}}/{{demoLatitude}},{{demoLongitude}},{{demoTime}}
 Accept:	application/json

@@ -11,10 +11,10 @@ class API {
   static final String host = "api.darksky.net";
   static final String basePath = "forecast";
 
-  Uri forcastCallUri({@required String key, @required double latitude, @required double longitude,}) => Uri(
+  Uri forcastCallUri({@required String key, @required double latitude, @required double longitude, @required int timeInSecs}) => Uri(
     scheme: "https",
     host: host,
-    path: '$basePath/$key/$latitude,$longitude',
+    path: '$basePath/$key/$latitude,$longitude,$timeInSecs',
     queryParameters: {
       "units": "auto",
     },

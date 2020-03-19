@@ -14,9 +14,10 @@ class APIService {
   Future<Forecast> getForcast(
       {@required String key,
       @required double latitude,
-      @required double longitude}) async {
+      @required double longitude,
+      @required int timeInSecs}) async {
     final uri =
-        api.forcastCallUri(key: key, latitude: latitude, longitude: longitude);
+        api.forcastCallUri(key: key, latitude: latitude, longitude: longitude, timeInSecs: timeInSecs);
     final response = await http.get(
       uri.toString(),
     );
@@ -29,7 +30,7 @@ class APIService {
     } on Response catch (response) {
       if (response.statusCode == 401) {
         print(
-            'Request ${api.forcastCallUri(key: key, latitude: latitude, longitude: longitude)} failed\nResponse: ${response.statusCode} ${response.reasonPhrase}');
+            'Request ${api.forcastCallUri(key: key, latitude: latitude, longitude: longitude, timeInSecs: timeInSecs)} failed\nResponse: ${response.statusCode} ${response.reasonPhrase}');
       }
     }
     throw response;
