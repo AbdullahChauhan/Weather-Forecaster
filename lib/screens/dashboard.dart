@@ -47,7 +47,8 @@ class _DashboardState extends State<Dashboard> {
         onRefresh: _updateData,
               child: ListView(
           children: <Widget>[
-            ForecastCard(forecast: _forecast)
+            if(_forecast != null)
+            ForecastCard(forecast: _forecast),
           ],
         ),
       ),

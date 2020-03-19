@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_app/models/Forecast.dart';
 
 class ForecastCard extends StatelessWidget {
@@ -9,7 +10,7 @@ class ForecastCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -23,8 +24,8 @@ class ForecastCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   Text(
-                    '${forecast.currently['summary']}',
-                    style: Theme.of(context).textTheme.subtitle1,
+                    '${forecast.currently['temperature']}°F',
+                    style: Theme.of(context).textTheme.headline5,
                   )
                 ],
               ),
@@ -32,13 +33,21 @@ class ForecastCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    '${DateTime.fromMillisecondsSinceEpoch(forecast.currently['time'] * 1000)}',
+                    '${DateFormat.yMMMMEEEEd().format(DateTime.fromMillisecondsSinceEpoch(forecast.currently['time'] * 1000))}',
                     style: Theme.of(context).textTheme.caption,
                   ),
+                  Spacer(),
                   Text(
-                    '${forecast.currently['temperature']}°F',
+                    '${forecast.currently['summary']}',
                     style: Theme.of(context).textTheme.caption,
-                  )
+                  ),
+                  SizedBox(
+                    width: 2.0,
+                  ),
+                  Icon(
+                    Icons.assessment,
+                    size: 16.0,
+                  ),
                 ],
               )
             ],
