@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/screens/dashboard.dart';
-import 'package:weather_app/services/api.dart';
+import 'package:weather_app/app/screens/dashboard.dart';
+import 'package:weather_app/app/services/api.dart';
 import 'package:weather_app/services/api_service.dart';
 
 void main() {
