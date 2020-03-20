@@ -24,7 +24,7 @@ class ForecastCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   Text(
-                    '${forecast.currently['temperature']}°F',
+                    '${forecast.currently['temperature']}°C',
                     style: Theme.of(context).textTheme.headline5,
                   )
                 ],
