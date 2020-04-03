@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/app/repositories/data_repository.dart';
 import 'package:weather_app/app/screens/widgets/forecast_card.dart';
 import 'package:weather_app/app/services/api_service.dart';
 import 'package:weather_app/app/utils/app_utils.dart';
@@ -25,12 +26,11 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Future<void> _updateData() async {
-    final dataRepository = Provider.of<APIService>(context, listen: false);
+    final dataRepository = Provider.of<DataRepository>(context, listen: false);
     Position position = await _getCurrentLoc();
     _latitude = position.latitude;
     _longitude = position.longitude;
     final forecast = await dataRepository.getForcast(
-      key: API.sandbox().apiKey,
       latitude: _latitude,
       longitude: _longitude,
       timeInSecs: getCurrentTime()
