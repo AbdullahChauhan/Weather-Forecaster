@@ -14,13 +14,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Provider<APIService>(
       create: (_) => APIService(api: API.sandbox()),
-          child: MaterialApp(
+      child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Weather Forecaster',
-          theme: ThemeData.dark().copyWith(
-            scaffoldBackgroundColor: Color(0xFF101010),
-          cardColor: Color(0xFF222222)
-          ),
+          theme: ThemeData(
+              brightness: Brightness.dark,
+              scaffoldBackgroundColor: Color(0xFF101010),
+              cardColor: Color(0xFF222222)),
           home: Dashboard()),
     );
   }
